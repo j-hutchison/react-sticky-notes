@@ -53,7 +53,7 @@ const Notes = (props) => {
 					return !el.isDeleted;
 				})
 				.filter((el) => {
-					return el.text.includes(props.query);
+					return el.text.toLowerCase().includes(props.query.toLowerCase());
 				})
 				.map((note) => {
 					return (
