@@ -1,0 +1,46 @@
+.note {
+	min-height: 28rem;
+	border-radius: 1rem;
+	padding: 2rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.note.saved {
+	background-color: rgb(252, 252, 160);
+}
+
+.note.active {
+	background-color: rgb(160, 252, 206);
+}
+
+.note-input {
+	background-color: transparent;
+	border: none;
+	width: 100%;
+	font-size: 1.8rem;
+}
+.note-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: auto;
+}
+.note-character-count {
+	font-size: 1.6rem;
+}
+.note-action-btn {
+	font-size: 1.6rem;
+	padding: 0.5rem 2rem;
+	border: none;
+	border-radius: 1rem;
+	cursor: pointer;
+}
+
+.action {
+	border: none;
+	background-color: transparent;
+	padding: 0.5rem;
+}

@@ -1,0 +1,19 @@
+.searchbar {
+	width: 100%;
+	position: relative;
+}
+.searchbar-icon {
+	position: absolute;
+	font-size: 1.8rem;
+	top: 50%;
+	left: 2rem;
+	translate: -50% -50%;
+}
+.searchbar-input {
+	width: 100%;
+	font-size: 1.8rem;
+	border: none;
+	background-color: #dadada;
+	padding: 1rem 4rem;
+	border-radius: 1rem;
+}
