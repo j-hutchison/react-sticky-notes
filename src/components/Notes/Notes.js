@@ -3,20 +3,8 @@ import styles from "./Notes.module.css";
 import Note from "./Note";
 
 const Notes = (props) => {
-	const NOTES = [
-		{
-			key: 1,
-			text: "This is my first note.",
-			date: "06/09/2022",
-			saved: true,
-		},
-		{
-			key: 2,
-			text: "Pick up the groceries",
-			date: "06/09/2022",
-			saved: true,
-		},
-	];
+	const NOTES = JSON.parse(window.localStorage.getItem("notes"));
+
 	const [notes, setNotes] = useState([]);
 
 	useEffect(() => {
@@ -27,6 +15,12 @@ const Notes = (props) => {
 
 	const addNote = (note) => {
 		const { text, date } = note;
+		console.log(text);
+
+		if (!text) {
+			return;
+		}
+
 		const newNote = {
 			key: notes.length + 1,
 			index: notes.length,
@@ -35,15 +29,27 @@ const Notes = (props) => {
 			saved: true,
 		};
 
-		setNotes(() => [...notes, newNote]);
+		const newNotes = [...notes, newNote];
+		debugger;
+
+		window.localStorage.setItem("notes", JSON.stringify([...newNotes]));
+
+		setNotes(() => {
+			return [...newNotes];
+		});
 	};
 
 	const deleteNote = (index) => {
 		const activeNote = notes[index];
 		const updatedNotes = [...notes];
 		updatedNotes[index] = { ...activeNote, isDeleted: true };
+		debugger;
 
-		setNotes(() => [...updatedNotes]);
+		window.localStorage.setItem("notes", JSON.stringify([...updatedNotes]));
+
+		setNotes(() => {
+			return [...updatedNotes];
+		});
 	};
 
 	return (
