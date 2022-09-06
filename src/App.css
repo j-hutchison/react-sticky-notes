@@ -19,7 +19,6 @@ html {
 }
 
 body {
-	padding: 3rem 6rem 2rem;
 }
 
 *:focus {
@@ -27,7 +26,18 @@ body {
 }
 
 .app {
+	padding: 3rem 6rem 2rem;
+	min-height: 100vh;
+
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
+}
+
+.app.dark {
+	background-color: #000;
+}
+
+.app.dark h1 {
+	color: #fff;
 }
