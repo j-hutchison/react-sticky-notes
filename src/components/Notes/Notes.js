@@ -9,7 +9,7 @@ const Notes = (props) => {
 
 	useEffect(() => {
 		setNotes(() => {
-			return NOTES;
+			return NOTES ? NOTES : [];
 		});
 	}, []);
 
