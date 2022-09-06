@@ -1,6 +1,11 @@
 import styles from "./Searchbar.module.css";
 
-const Searchbar = () => {
+const Searchbar = (props) => {
+	const handleSearch = (e) => {
+		const searchValue = e.target.value;
+		props.setSearchQuery(() => searchValue);
+	};
+
 	return (
 		<nav className={styles["searchbar"]}>
 			<i
@@ -10,6 +15,7 @@ const Searchbar = () => {
 				className={styles["searchbar-input"]}
 				type="text"
 				placeholder="type to search..."
+				onChange={handleSearch}
 			></input>
 		</nav>
 	);

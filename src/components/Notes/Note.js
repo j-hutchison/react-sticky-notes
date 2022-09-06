@@ -20,13 +20,26 @@ const Note = (props) => {
 		setNoteText(() => inputValue);
 	};
 
-	const handleDeleteEvent = () => {};
-	const handleSaveEvent = () => {};
+	const handleDeleteEvent = (e) => {
+		console.log(`Note.js - key: ${props?.index}`);
+		const noteIndex = props?.index;
+		props.deleteNoteHandler(noteIndex);
+	};
+
+	const handleSaveEvent = (e) => {
+		e.preventDefault();
+		props.addNoteHandler({ text: noteText, date: "06/09/2022" });
+
+		setCharacterCount(() => CHARACTER_LIMIT);
+		setNoteText(() => "");
+		setIsSaved(() => false);
+	};
 
 	const trashIcon = <i className={`fa-solid fa-trash`}></i>;
 
 	return (
-		<div
+		<form
+			onSubmit={handleSaveEvent}
 			className={`${styles["note"]} ${
 				!isSaved ? styles["active"] : styles["saved"]
 			}`}
@@ -40,7 +53,7 @@ const Note = (props) => {
 			/>
 			<footer className={styles["note-footer"]}>
 				<span className={styles["note-character-count"]}>
-					{date ? date : characterCount}
+					{date ? date : `${characterCount} Remaining`}
 				</span>
 				{isSaved ? (
 					<button
@@ -58,7 +71,7 @@ const Note = (props) => {
 					</button>
 				)}
 			</footer>
-		</div>
+		</form>
 	);
 };
 

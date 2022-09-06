@@ -14,7 +14,7 @@
 	font-size: 1.8rem;
 	border: none;
 	padding: 1rem 2rem;
-	background-color: #dadada;
+	background-color: #e7e7e7;
 	border-radius: 2rem;
 	letter-spacing: 1px;
 	cursor: pointer;
@@ -22,5 +22,5 @@
 
 .toolbar-btn:hover,
 .toolbar-btn:active {
-	background-color: #bababa;
+	background-color: #d3d3d3;
 }
